@@ -58,3 +58,43 @@ reveal.classList.add("active");
 });
 
 });
+const header = document.querySelector("header");
+
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+
+    const currentScroll = window.pageYOffset;
+
+    // Desktop: navbar hamesha show
+    if (window.innerWidth > 768) {
+        header.style.transform = "translateY(0)";
+        return;
+    }
+
+    // Shadow
+    if(currentScroll > 20){
+        header.classList.add("scrolled");
+    }else{
+        header.classList.remove("scrolled");
+    }
+
+    // Top of page
+    if(currentScroll <= 0){
+        header.style.transform = "translateY(0)";
+        return;
+    }
+
+    // Scroll Down → Hide
+    if(currentScroll > lastScroll && currentScroll > 80){
+        header.style.transform = "translateY(-110%)";
+    }
+
+    // Scroll Up → Show
+    else{
+        header.style.transform = "translateY(0)";
+    }
+
+    lastScroll = currentScroll;
+
+});
