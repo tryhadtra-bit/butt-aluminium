@@ -59,9 +59,9 @@ reveal.classList.add("active");
 
 });
 const header = document.querySelector("header");
-
 let lastScroll = 0;
 
+window.addEventListener("scroll", function () {
 
     if (!header) return;
 
@@ -75,9 +75,10 @@ let lastScroll = 0;
             header.style.top = "0";
         }
 
+    } else {
+        header.style.top = "0";
     }
 
     lastScroll = currentScroll;
 
-
-    if (!header) return;
+});
