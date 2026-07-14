@@ -1,39 +1,23 @@
-/*=========================================
-BUTT ALUMINIUM V2
-Premium Script
-=========================================*/
+/*=====================================
+BUTT ALUMINIUM
+SCRIPT.JS
+=====================================*/
 
-/*==============
-LOADER
-==============*/
-
-window.addEventListener("load", () => {
-
-const loader = document.querySelector(".loader");
-
-setTimeout(() => {
-
-loader.classList.add("hide");
-
-}, 700);
-
-});
-
-/*==============
+/*==========================
 SCROLL REVEAL
-==============*/
+==========================*/
 
 const reveals = document.querySelectorAll(".reveal");
 
 function revealSections(){
 
-const windowHeight = window.innerHeight;
-
 reveals.forEach(section=>{
 
-const top = section.getBoundingClientRect().top;
+const windowHeight = window.innerHeight;
 
-if(top < windowHeight - 120){
+const sectionTop = section.getBoundingClientRect().top;
+
+if(sectionTop < windowHeight - 120){
 
 section.classList.add("active");
 
@@ -43,92 +27,19 @@ section.classList.add("active");
 
 }
 
-window.addEventListener("scroll", revealSections);
+window.addEventListener("scroll",revealSections);
 
 revealSections();
 
-/*==============
-COUNTER
-==============*/
+/*==========================
+HEADER CHANGE
+==========================*/
 
-const counters = document.querySelectorAll(".counter");
+const header = document.querySelector(".header");
 
-let counterStarted = false;
+window.addEventListener("scroll",()=>{
 
-function runCounters(){
-
-if(counterStarted) return;
-
-const stats = document.querySelector(".statistics");
-
-if(!stats) return;
-
-const statsTop = stats.getBoundingClientRect().top;
-
-if(statsTop < window.innerHeight - 100){
-
-counterStarted = true;
-
-counters.forEach(counter=>{
-
-const target = +counter.dataset.target;
-
-let count = 0;
-
-const speed = target / 80;
-
-const update = ()=>{
-
-count += speed;
-
-if(count < target){
-
-counter.innerText = Math.ceil(count);
-
-requestAnimationFrame(update);
-
-}else{
-
-if(target === 100){
-
-counter.innerText = "100%";
-
-}else{
-
-counter.innerText = target + "+";
-
-}
-
-}
-
-};
-
-update();
-
-});
-
-}
-
-}
-
-window.addEventListener("scroll", runCounters);
-
-runCounters();
-/*=========================================
-HEADER
-=========================================*/
-
-const header = document.querySelector("header");
-
-let lastScroll = 0;
-
-window.addEventListener("scroll", () => {
-
-const currentScroll = window.pageYOffset;
-
-/* Glass Effect */
-
-if(currentScroll > 80){
+if(window.scrollY > 40){
 
 header.classList.add("scrolled");
 
@@ -138,72 +49,11 @@ header.classList.remove("scrolled");
 
 }
 
-/* Mobile Hide Navbar */
-
-if(window.innerWidth <= 768){
-
-if(currentScroll > lastScroll && currentScroll > 120){
-
-header.classList.add("hide");
-
-}else{
-
-header.classList.remove("hide");
-
-}
-
-}else{
-
-header.classList.remove("hide");
-
-}
-
-lastScroll = currentScroll;
-
 });
 
-/*=========================================
-ACTIVE NAVIGATION
-=========================================*/
-
-const sections = document.querySelectorAll("section");
-
-const navLinks = document.querySelectorAll("nav ul li a");
-
-window.addEventListener("scroll",()=>{
-
-let current = "";
-
-sections.forEach(section=>{
-
-const sectionTop = section.offsetTop;
-
-const sectionHeight = section.clientHeight;
-
-if(pageYOffset >= sectionTop - 200){
-
-current = section.getAttribute("id");
-
-}
-
-});
-
-navLinks.forEach(link=>{
-
-link.classList.remove("active");
-
-if(link.getAttribute("href").includes(current)){
-
-link.classList.add("active");
-
-}
-
-});
-
-});
-/*=========================================
+/*==========================
 SMOOTH SCROLL
-=========================================*/
+==========================*/
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
 
@@ -217,8 +67,7 @@ if(target){
 
 target.scrollIntoView({
 
-behavior:"smooth",
-block:"start"
+behavior:"smooth"
 
 });
 
@@ -227,111 +76,126 @@ block:"start"
 });
 
 });
+/*=====================================
+COUNTER ANIMATION
+=====================================*/
 
-/*=========================================
-HERO PARALLAX
-=========================================*/
+const counters = document.querySelectorAll(".feature h3");
 
-const heroVideo=document.querySelector(".hero video");
+let counterPlayed = false;
+
+function startCounter(){
+
+if(counterPlayed) return;
+
+const about = document.querySelector(".about");
+
+if(!about) return;
+
+const aboutTop = about.getBoundingClientRect().top;
+
+if(aboutTop < window.innerHeight - 100){
+
+counterPlayed = true;
+
+counters.forEach(counter=>{
+
+const text = counter.innerText;
+
+const target = parseInt(text.replace(/\D/g,""));
+
+let count = 0;
+
+const speed = target / 80;
+
+function update(){
+
+count += speed;
+
+if(count < target){
+
+if(text.includes("%")){
+
+counter.innerText = Math.ceil(count) + "%";
+
+}else if(text.includes("+")){
+
+counter.innerText = Math.ceil(count) + "+";
+
+}else{
+
+counter.innerText = Math.ceil(count);
+
+}
+
+requestAnimationFrame(update);
+
+}else{
+
+counter.innerText = text;
+
+}
+
+}
+
+update();
+
+});
+
+}
+
+}
+
+window.addEventListener("scroll",startCounter);
+
+startCounter();
+
+/*=====================================
+MOBILE HEADER HIDE / SHOW
+=====================================*/
+
+let lastScroll = 0;
 
 window.addEventListener("scroll",()=>{
 
-const scroll=window.pageYOffset;
+if(window.innerWidth > 768) return;
 
-if(heroVideo){
+const currentScroll = window.pageYOffset;
 
-heroVideo.style.transform=`translateY(${scroll*0.25}px) scale(1.08)`;
+if(currentScroll > lastScroll && currentScroll > 120){
+
+header.style.transform = "translateY(-100%)";
+
+}else{
+
+header.style.transform = "translateY(0)";
 
 }
 
-});
-
-/*=========================================
-PROJECT IMAGE EFFECT
-=========================================*/
-
-const projects=document.querySelectorAll(".project-card");
-
-projects.forEach(card=>{
-
-card.addEventListener("mousemove",(e)=>{
-
-const rect=card.getBoundingClientRect();
-
-const x=e.clientX-rect.left;
-
-const y=e.clientY-rect.top;
-
-card.style.setProperty("--x",x+"px");
-card.style.setProperty("--y",y+"px");
+lastScroll = currentScroll;
 
 });
 
-});
+/*=====================================
+IMAGE FADE
+=====================================*/
 
-/*=========================================
-BUTTON RIPPLE EFFECT
-=========================================*/
+const images = document.querySelectorAll("img");
 
-const buttons=document.querySelectorAll(".btn-primary,.btn-secondary,.quote-btn");
-
-buttons.forEach(button=>{
-
-button.addEventListener("click",function(e){
-
-const ripple=document.createElement("span");
-
-const rect=this.getBoundingClientRect();
-
-const size=Math.max(rect.width,rect.height);
-
-ripple.style.width=size+"px";
-ripple.style.height=size+"px";
-
-ripple.style.left=(e.clientX-rect.left-size/2)+"px";
-ripple.style.top=(e.clientY-rect.top-size/2)+"px";
-
-ripple.classList.add("ripple");
-
-this.appendChild(ripple);
-
-setTimeout(()=>{
-
-ripple.remove();
-
-},600);
-
-});
-
-});
-/*=========================================
-LAZY LOADING IMAGES
-=========================================*/
-
-const images=document.querySelectorAll("img");
-
-const imageObserver=new IntersectionObserver((entries,observer)=>{
+const imageObserver = new IntersectionObserver(entries=>{
 
 entries.forEach(entry=>{
 
 if(entry.isIntersecting){
 
-const img=entry.target;
-
-if(img.dataset.src){
-
-img.src=img.dataset.src;
-
-}
-
-img.classList.add("loaded");
-
-observer.unobserve(img);
+entry.target.classList.add("loaded");
 
 }
 
 });
 
+},{
+threshold:0.2
 });
 
 images.forEach(img=>{
@@ -339,61 +203,83 @@ images.forEach(img=>{
 imageObserver.observe(img);
 
 });
+/*=====================================
+ACTIVE PAGE
+=====================================*/
 
-/*=========================================
-BRAND LOGO ANIMATION
-=========================================*/
+const currentPage = window.location.pathname.split("/").pop();
 
-const brands=document.querySelectorAll(".brand-slider img");
+document.querySelectorAll("a").forEach(link=>{
 
-brands.forEach((brand,index)=>{
+const href = link.getAttribute("href");
 
-brand.style.animationDelay=`${index*0.15}s`;
+if(href === currentPage){
 
-brand.classList.add("fade-in");
-
-});
-
-/*=========================================
-NAVBAR SHADOW
-=========================================*/
-
-window.addEventListener("scroll",()=>{
-
-if(window.pageYOffset>10){
-
-header.style.boxShadow="0 18px 45px rgba(0,0,0,.20)";
-
-}else{
-
-header.style.boxShadow="none";
+link.classList.add("active");
 
 }
 
 });
 
-/*=========================================
-PERFORMANCE
-=========================================*/
+/*=====================================
+HERO PARALLAX
+=====================================*/
 
-window.addEventListener("pageshow",()=>{
+const hero = document.querySelector(".hero");
 
-document.body.classList.add("loaded");
+window.addEventListener("scroll",()=>{
+
+if(!hero) return;
+
+const scroll = window.pageYOffset;
+
+hero.style.backgroundPositionY = scroll * 0.35 + "px";
 
 });
 
-/*=========================================
-INITIALIZE
-=========================================*/
+/*=====================================
+PRELOAD IMAGES
+=====================================*/
 
-document.addEventListener("DOMContentLoaded",()=>{
+window.addEventListener("load",()=>{
+
+document.querySelectorAll("img").forEach(img=>{
+
+const image = new Image();
+
+image.src = img.src;
+
+});
+
+});
+
+/*=====================================
+REMOVE VIDEO IF NOT FOUND
+=====================================*/
+
+const heroVideo = document.querySelector(".hero video");
+
+if(heroVideo){
+
+heroVideo.onerror = function(){
+
+this.style.display = "none";
+
+};
+
+}
+
+/*=====================================
+INITIALIZE
+=====================================*/
+
+window.addEventListener("DOMContentLoaded",()=>{
 
 revealSections();
-
-runCounters();
+startCounter();
 
 });
 
-/*=========================================
-END OF SCRIPT
-=========================================*/
+/*=====================================
+END
+=====================================*/
