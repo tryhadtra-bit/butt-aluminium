@@ -106,29 +106,35 @@ we're here to help.
 
 <div class="contact-right">
 
-<form action="https://formsubmit.co/buttaluminum@gmail.com" method="POST">
-
-    <input type="hidden" name="_captcha" value="false">
-
-    <input type="hidden" name="_subject" value="New Quote Request - Butt Aluminium">
-
-    <input type="hidden" name="_template" value="table">
-
-    <input type="hidden" name="_next" value="thankyou.html">
+<form action="https://formspree.io/f/mojozboq" method="POST">
 
     <div class="input-group">
 
-        <input type="text" name="Full Name" placeholder="Full Name" required>
+        <input
+            type="text"
+            name="Name"
+            placeholder="Full Name"
+            required>
 
-        <input type="email" name="Email" placeholder="Email Address" required>
+        <input
+            type="email"
+            name="Email"
+            placeholder="Email Address"
+            required>
 
     </div>
 
     <div class="input-group">
 
-        <input type="tel" name="Phone" placeholder="Phone Number" required>
+        <input
+            type="tel"
+            name="Phone"
+            placeholder="Phone Number"
+            required>
 
-        <select name="Service">
+        <select name="Service" required>
+
+            <option value="">Select Service</option>
 
             <option>Aluminium Windows</option>
 
@@ -142,6 +148,8 @@ we're here to help.
 
             <option>Glass Partitions</option>
 
+            <option>Custom Glass Work</option>
+
         </select>
 
     </div>
@@ -151,6 +159,15 @@ we're here to help.
         rows="7"
         placeholder="Tell us about your project..."
         required></textarea>
+
+    <!-- Optional spam protection -->
+    <input type="text" name="_gotcha" style="display:none">
+
+    <!-- Email subject -->
+    <input
+        type="hidden"
+        name="_subject"
+        value="New Quote Request - Butt Aluminium">
 
     <button type="submit" class="primary-btn">
 
