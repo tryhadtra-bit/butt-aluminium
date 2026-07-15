@@ -1966,11 +1966,15 @@ justify-content:center;
 
 padding:18px 42px;
 
-border:1px solid #111;
+border:1px solid rgba(255,255,255,.35);
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(10px);
+
+color:white;
 
 text-decoration:none;
-
-color:#111;
 
 font-size:13px;
 
@@ -2653,12 +2657,22 @@ width:100%;
 }
 
 .logo-main h1{
-    font-size:72px;
-    font-weight:900;
-    color:#fff;
-    margin:0;
-    line-height:1;
-    letter-spacing:-3px;
+
+font-size:72px;
+font-weight:900;
+letter-spacing:-3px;
+
+background:linear-gradient(
+180deg,
+#ffffff,
+#d9d9d9,
+#a8a8a8
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+
 }
 
 .logo-text{
@@ -2669,12 +2683,19 @@ width:100%;
 }
 
 .logo-text span{
-    color:#fff;
-    font-size:20px;
-    font-weight:600;
-    letter-spacing:2px;
-    text-transform:uppercase;
+
+color:#E5E7EB;
+
+font-size:18px;
+
+font-weight:600;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
 }
+
 /*========================================
 ABOUT HERO
 ========================================*/
