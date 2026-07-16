@@ -59,17 +59,20 @@ padding:38px 0;
 
 .header-container{
 
-width:min(92%,1500px);
-
-margin:auto;
-
 display:flex;
 
 justify-content:space-between;
 
 align-items:center;
 
+width:90%;
+
+max-width:1400px;
+
+margin:auto;
+
 }
+
 
 /*==============================
 LOGO
@@ -4519,6 +4522,72 @@ header .container{
 
 .quote-btn{
     display:none !important;
+}
+
+}
+/*==========================
+HIDE NAVIGATION ON MOBILE
+==========================*/
+
+@media (max-width:768px){
+
+nav{
+    display:none !important;
+}
+
+.navbar{
+    display:none !important;
+}
+
+.menu{
+    display:none !important;
+}
+
+.header-nav{
+    display:none !important;
+}
+
+.quote-btn{
+    display:none !important;
+}
+
+}
+/*=================================
+MOBILE HEADER FIX
+=================================*/
+
+@media (max-width:768px){
+
+.header{
+
+padding:18px 0;
+
+}
+
+.header-container{
+
+display:flex;
+
+justify-content:flex-start !important;
+
+align-items:center;
+
+padding:0 18px;
+
+}
+
+.logo{
+
+margin:0;
+
+justify-content:flex-start;
+
+}
+
+.quote-link{
+
+display:none;
+
 }
 
 }
