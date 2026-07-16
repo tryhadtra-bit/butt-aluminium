@@ -1908,33 +1908,38 @@ align-items:center;
 
 }
 
+/*==========================
+PREMIUM LOGO
+==========================*/
+
 .logo{
-
-text-decoration:none;
-
-color:#ffffff;
-
-}
-
-.logo-main{
 
 display:flex;
 
 align-items:center;
 
-gap:18px;
+gap:26px;
+
+text-decoration:none;
 
 }
 
-.logo-main h1{
+.logo-line{
 
-font-size:52px;
+width:3px;
 
-font-weight:800;
+height:78px;
 
-letter-spacing:-3px;
+border-radius:50px;
 
-line-height:1;
+background:linear-gradient(
+180deg,
+#ffffff 0%,
+#d9d9d9 45%,
+#9a9a9a 100%
+);
+
+box-shadow:0 0 12px rgba(255,255,255,.15);
 
 }
 
@@ -1944,47 +1949,77 @@ display:flex;
 
 flex-direction:column;
 
-font-size:12px;
+justify-content:center;
 
-font-weight:600;
+}
 
-letter-spacing:2px;
+.logo-text h1{
 
-line-height:1.4;
+margin:0;
+
+font-size:74px;
+
+font-weight:900;
+
+line-height:.88;
+
+letter-spacing:-6px;
+
+font-family:'Montserrat',sans-serif;
+
+background:linear-gradient(
+180deg,
+#ffffff,
+#ececec,
+#bdbdbd,
+#8f8f8f
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+background-clip:text;
+
+text-shadow:0 2px 12px rgba(255,255,255,.05);
+
+}
+
+.logo-text span{
+
+margin-top:6px;
+
+font-size:14px;
+
+font-weight:500;
+
+letter-spacing:5px;
 
 text-transform:uppercase;
+
+color:#C7CCD3;
 
 }
 
 .quote-btn{
 
-display:inline-flex;
+border:1px solid rgba(255,255,255,.25);
 
-align-items:center;
+background:rgba(255,255,255,.03);
 
-justify-content:center;
-
-padding:18px 42px;
-
-border:1px solid rgba(255,255,255,.35);
-
-background:rgba(255,255,255,.05);
+color:#F4F4F4;
 
 backdrop-filter:blur(10px);
 
-color:white;
-
-text-decoration:none;
-
-font-size:13px;
-
-font-weight:600;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
 transition:.35s;
+
+}
+
+.quote-btn:hover{
+
+background:#F2F2F2;
+
+color:#111;
 
 }
 
@@ -4058,6 +4093,264 @@ font-size:34px;
 .services-cta .cta-btn{
 
 width:100%;
+
+}
+
+}
+/*==================================
+PREMIUM LOGO ANIMATION
+==================================*/
+
+.logo-line{
+
+opacity:0;
+
+transform:scaleY(0);
+
+transform-origin:top;
+
+animation:lineReveal .8s ease forwards;
+
+}
+
+.logo-text h1{
+
+opacity:0;
+
+transform:translateX(-40px);
+
+animation:titleReveal .8s ease forwards;
+
+animation-delay:.4s;
+
+}
+
+.logo-text span{
+
+opacity:0;
+
+transform:translateY(15px);
+
+animation:subtitleReveal .8s ease forwards;
+
+animation-delay:.8s;
+
+}
+
+@keyframes lineReveal{
+
+0%{
+
+opacity:0;
+
+transform:scaleY(0);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:scaleY(1);
+
+}
+
+}
+
+@keyframes titleReveal{
+
+0%{
+
+opacity:0;
+
+transform:translateX(-40px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
+
+}
+
+@keyframes subtitleReveal{
+
+0%{
+
+opacity:0;
+
+transform:translateY(15px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+.logo{
+
+transition:.35s ease;
+
+}
+
+.logo:hover{
+
+transform:translateY(-2px);
+
+}
+
+.logo-line{
+
+transition:.4s;
+
+}
+
+.logo:hover .logo-line{
+
+box-shadow:0 0 20px rgba(255,255,255,.35);
+
+}
+
+.logo-text h1{
+
+transition:.35s;
+
+}
+
+.logo:hover h1{
+
+letter-spacing:-4px;
+
+}
+
+.logo:hover span{
+
+color:white;
+
+}
+/*========================
+MOBILE LOGO
+========================*/
+
+@media(max-width:992px){
+
+.logo{
+
+gap:14px;
+
+}
+
+.logo-line{
+
+height:58px;
+
+}
+
+.logo-text h1{
+
+font-size:52px;
+
+letter-spacing:-4px;
+
+}
+
+.logo-text span{
+
+font-size:11px;
+
+letter-spacing:2px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.logo{
+
+gap:10px;
+
+}
+
+.logo-line{
+
+height:46px;
+
+width:2px;
+
+}
+
+.logo-text h1{
+
+font-size:38px;
+
+letter-spacing:-3px;
+
+}
+
+.logo-text span{
+
+font-size:9px;
+
+letter-spacing:1.5px;
+
+margin-top:3px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.logo{
+
+gap:8px;
+
+}
+
+.logo-line{
+
+height:38px;
+
+}
+
+.logo-text h1{
+
+font-size:30px;
+
+letter-spacing:-2px;
+
+}
+
+.logo-text span{
+
+font-size:8px;
+
+letter-spacing:1px;
+
+}
+
+}
+@media(max-width:768px){
+
+header .container{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px 20px;
 
 }
 
