@@ -4503,3 +4503,22 @@ height:300px;
 }
 
 }
+@media (max-width:768px){
+
+header .container{
+    display:flex !important;
+    justify-content:flex-start !important;
+    align-items:center !important;
+}
+
+.logo{
+    margin:0 !important;
+    margin-right:auto !important;
+    justify-content:flex-start !important;
+}
+
+.quote-btn{
+    display:none !important;
+}
+
+}
