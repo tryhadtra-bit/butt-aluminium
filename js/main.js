@@ -1,0 +1,972 @@
+/*==================================================
+BUTT ALUMINIUM
+PREMIUM WEBSITE
+MAIN.JS
+==================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    console.log("Butt Aluminium Website Loaded");
+
+    /*==============================================
+    STICKY HEADER
+    ==============================================*/
+
+    const header = document.querySelector(".header");
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 50) {
+
+            header.classList.add("scrolled");
+
+        } else {
+
+            header.classList.remove("scrolled");
+
+        }
+
+    });
+
+});
+/*==============================================
+CUSTOM CURSOR
+==============================================*/
+
+const cursor = document.querySelector(".cursor");
+const cursor2 = document.querySelector(".cursor2");
+
+if (cursor && cursor2) {
+
+    window.addEventListener("mousemove", (e) => {
+
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+
+        cursor2.style.left = e.clientX + "px";
+        cursor2.style.top = e.clientY + "px";
+
+    });
+
+    document.querySelectorAll("a, button").forEach(item => {
+
+        item.addEventListener("mouseenter", () => {
+
+            cursor.style.transform = "translate(-50%,-50%) scale(2)";
+            cursor2.style.transform = "translate(-50%,-50%) scale(1.6)";
+
+        });
+
+        item.addEventListener("mouseleave", () => {
+
+            cursor.style.transform = "translate(-50%,-50%) scale(1)";
+            cursor2.style.transform = "translate(-50%,-50%) scale(1)";
+
+        });
+
+    });
+
+}
+/*==============================================
+SCROLL PROGRESS BAR
+==============================================*/
+
+const progress = document.querySelector(".progress");
+
+if (progress) {
+
+    window.addEventListener("scroll", () => {
+
+        const scrollTop = window.scrollY;
+
+        const docHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
+
+        const percentage = (scrollTop / docHeight) * 100;
+
+        progress.style.width = percentage + "%";
+
+    });
+
+}
+/*==============================================
+GSAP ANIMATIONS
+==============================================*/
+
+gsap.registerPlugin(ScrollTrigger);
+
+/*==============================================
+HERO
+==============================================*/
+
+gsap.from(".hero-subtitle",{
+
+    y:60,
+    opacity:0,
+    duration:1,
+    ease:"power3.out"
+
+});
+
+gsap.from(".hero-title",{
+
+    y:100,
+    opacity:0,
+    duration:1.2,
+    delay:.2,
+    ease:"power4.out"
+
+});
+
+gsap.from(".hero-description",{
+
+    y:60,
+    opacity:0,
+    duration:1,
+    delay:.5
+
+});
+
+gsap.from(".hero-buttons",{
+
+    y:60,
+    opacity:0,
+    duration:1,
+    delay:.7
+
+});
+
+gsap.from(".hero-stats",{
+
+    y:60,
+    opacity:0,
+    duration:1,
+    delay:.9
+
+});
+
+/*==============================================
+SECTION TITLES
+==============================================*/
+
+gsap.utils.toArray(".section-title").forEach(section=>{
+
+    gsap.from(section,{
+
+        scrollTrigger:{
+
+            trigger:section,
+
+            start:"top 80%"
+
+        },
+
+        y:80,
+
+        opacity:0,
+
+        duration:1
+
+    });
+
+});
+/*==============================================
+ABOUT IMAGE
+==============================================*/
+
+gsap.from(".about-right",{
+
+    scrollTrigger:{
+
+        trigger:".about-right",
+
+        start:"top 80%"
+
+    },
+
+    x:120,
+
+    opacity:0,
+
+    duration:1.3,
+
+    ease:"power3.out"
+
+});
+
+gsap.from(".about-left",{
+
+    scrollTrigger:{
+
+        trigger:".about-left",
+
+        start:"top 80%"
+
+    },
+
+    x:-120,
+
+    opacity:0,
+
+    duration:1.3,
+
+    ease:"power3.out"
+
+});
+
+/*==============================================
+STATISTICS
+==============================================*/
+
+gsap.utils.toArray(".stat-box").forEach((box,index)=>{
+
+    gsap.from(box,{
+
+        scrollTrigger:{
+
+            trigger:box,
+
+            start:"top 85%"
+
+        },
+
+        y:80,
+
+        opacity:0,
+
+        duration:.8,
+
+        delay:index*0.15,
+
+        ease:"power3.out"
+
+    });
+
+});
+
+/*==============================================
+SERVICE CARDS
+==============================================*/
+
+gsap.utils.toArray(".service-card").forEach((card,index)=>{
+
+    gsap.from(card,{
+
+        scrollTrigger:{
+
+            trigger:card,
+
+            start:"top 85%"
+
+        },
+
+        y:100,
+
+        opacity:0,
+
+        duration:.9,
+
+        delay:index*0.15,
+
+        ease:"power4.out"
+
+    });
+
+});
+
+/*==============================================
+PROJECTS
+==============================================*/
+
+gsap.utils.toArray(".project-row").forEach((project)=>{
+
+    gsap.from(project,{
+
+        scrollTrigger:{
+
+            trigger:project,
+
+            start:"top 80%"
+
+        },
+
+        y:120,
+
+        opacity:0,
+
+        duration:1.2,
+
+        ease:"power3.out"
+
+    });
+
+});
+
+/*==============================================
+GALLERY
+==============================================*/
+
+gsap.utils.toArray(".gallery-item").forEach((item,index)=>{
+
+    gsap.from(item,{
+
+        scrollTrigger:{
+
+            trigger:item,
+
+            start:"top 90%"
+
+        },
+
+        scale:.85,
+
+        opacity:0,
+
+        duration:.8,
+
+        delay:index*0.08,
+
+        ease:"power3.out"
+
+    });
+
+});
+/*==============================================
+PARALLAX EFFECT
+==============================================*/
+
+gsap.utils.toArray(".showcase-image img, .project-image img").forEach((image)=>{
+
+    gsap.to(image,{
+
+        yPercent:15,
+
+        ease:"none",
+
+        scrollTrigger:{
+
+            trigger:image,
+
+            start:"top bottom",
+
+            end:"bottom top",
+
+            scrub:true
+
+        }
+
+    });
+
+});
+
+/*==============================================
+FLOATING ANIMATION
+==============================================*/
+
+gsap.utils.toArray(".why-card, .service-card").forEach((card)=>{
+
+    gsap.to(card,{
+
+        y:-10,
+
+        duration:2.5,
+
+        repeat:-1,
+
+        yoyo:true,
+
+        ease:"sine.inOut"
+
+    });
+
+});
+
+/*==============================================
+BUTTON HOVER SCALE
+==============================================*/
+
+document.querySelectorAll(".btn-primary, .btn-secondary").forEach(button=>{
+
+    button.addEventListener("mouseenter",()=>{
+
+        gsap.to(button,{
+
+            scale:1.05,
+
+            duration:.3,
+
+            ease:"power2.out"
+
+        });
+
+    });
+
+    button.addEventListener("mouseleave",()=>{
+
+        gsap.to(button,{
+
+            scale:1,
+
+            duration:.3,
+
+            ease:"power2.out"
+
+        });
+
+    });
+
+});
+
+/*==============================================
+IMAGE HOVER
+==============================================*/
+
+document.querySelectorAll(".gallery-item img, .project-image img").forEach(img=>{
+
+    img.addEventListener("mouseenter",()=>{
+
+        gsap.to(img,{
+
+            scale:1.08,
+
+            duration:.5
+
+        });
+
+    });
+
+    img.addEventListener("mouseleave",()=>{
+
+        gsap.to(img,{
+
+            scale:1,
+
+            duration:.5
+
+        });
+
+    });
+
+});
+/*==============================================
+SMOOTH SCROLL LINKS
+==============================================*/
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+    anchor.addEventListener("click",function(e){
+
+        e.preventDefault();
+
+        const target=document.querySelector(this.getAttribute("href"));
+
+        if(target){
+
+            target.scrollIntoView({
+
+                behavior:"smooth",
+
+                block:"start"
+
+            });
+
+        }
+
+    });
+
+});
+
+/*==============================================
+ACTIVE NAVIGATION
+==============================================*/
+
+const sections=document.querySelectorAll("section");
+const navLinks=document.querySelectorAll("nav a");
+
+window.addEventListener("scroll",()=>{
+
+    let current="";
+
+    sections.forEach(section=>{
+
+        const sectionTop=section.offsetTop-150;
+
+        const sectionHeight=section.clientHeight;
+
+        if(window.scrollY>=sectionTop){
+
+            current=section.getAttribute("id");
+
+        }
+
+    });
+
+    navLinks.forEach(link=>{
+
+        link.classList.remove("active");
+
+        if(link.getAttribute("href")==="#" + current){
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
+
+/*==============================================
+COUNTER ANIMATION
+==============================================*/
+
+const counters=document.querySelectorAll(".stat-box h2");
+
+const counterObserver=new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            const counter=entry.target;
+
+            const target=parseInt(counter.innerText);
+
+            let count=0;
+
+            const speed=target/100;
+
+            const update=()=>{
+
+                count+=speed;
+
+                if(count<target){
+
+                    counter.innerText=Math.ceil(count)+"+";
+
+                    requestAnimationFrame(update);
+
+                }else{
+
+                    counter.innerText=target+"+";
+
+                }
+
+            };
+
+            update();
+
+            counterObserver.unobserve(counter);
+
+        }
+
+    });
+
+});
+
+counters.forEach(counter=>{
+
+    counterObserver.observe(counter);
+
+});
+/*==============================================
+PREMIUM PAGE LOADER
+==============================================*/
+
+window.addEventListener("load",()=>{
+
+const loader=document.querySelector(".loader");
+
+if(loader){
+
+gsap.to(loader,{
+
+opacity:0,
+
+duration:.8,
+
+delay:.5,
+
+onComplete:()=>{
+
+loader.style.display="none";
+
+}
+
+});
+
+}
+
+});
+
+/*==============================================
+INTRO ANIMATION
+==============================================*/
+
+const tl=gsap.timeline();
+
+tl.from(".header",{
+
+y:-100,
+
+opacity:0,
+
+duration:1,
+
+ease:"power4.out"
+
+})
+
+.from(".hero-subtitle",{
+
+y:50,
+
+opacity:0,
+
+duration:.8
+
+},"-=0.5")
+
+.from(".hero-title",{
+
+y:80,
+
+opacity:0,
+
+duration:1
+
+},"-=0.4")
+
+.from(".hero-description",{
+
+y:40,
+
+opacity:0,
+
+duration:.8
+
+},"-=0.5")
+
+.from(".hero-buttons",{
+
+y:40,
+
+opacity:0,
+
+duration:.8
+
+},"-=0.5")
+
+.from(".hero-stats",{
+
+y:40,
+
+opacity:0,
+
+duration:.8
+
+},"-=0.5");
+
+/*==============================================
+TEXT PARALLAX
+==============================================*/
+
+gsap.utils.toArray(".hero-title").forEach(title=>{
+
+gsap.to(title,{
+
+yPercent:20,
+
+ease:"none",
+
+scrollTrigger:{
+
+trigger:title,
+
+start:"top top",
+
+end:"bottom top",
+
+scrub:true
+
+}
+
+});
+
+});
+
+/*==============================================
+ROTATING ICONS
+==============================================*/
+
+gsap.utils.toArray(".why-icon").forEach(icon=>{
+
+gsap.to(icon,{
+
+rotation:360,
+
+duration:15,
+
+repeat:-1,
+
+ease:"none"
+
+});
+
+});
+
+/*==============================================
+FOOTER FADE
+==============================================*/
+
+gsap.from(".footer",{
+
+scrollTrigger:{
+
+trigger:".footer",
+
+start:"top 90%"
+
+},
+
+y:120,
+
+opacity:0,
+
+duration:1.2
+
+});
+/*==============================================
+MOUSE PARALLAX
+==============================================*/
+
+const hero=document.querySelector(".hero");
+
+if(hero){
+
+hero.addEventListener("mousemove",(e)=>{
+
+const x=(window.innerWidth/2-e.clientX)/40;
+const y=(window.innerHeight/2-e.clientY)/40;
+
+gsap.to(".hero-title",{
+
+x:x,
+y:y,
+duration:1.2,
+ease:"power3.out"
+
+});
+
+gsap.to(".hero-description",{
+
+x:x*0.6,
+y:y*0.6,
+duration:1.2,
+ease:"power3.out"
+
+});
+
+});
+
+}
+
+/*==============================================
+IMAGE REVEAL
+==============================================*/
+
+gsap.utils.toArray(".project-image").forEach((image)=>{
+
+gsap.from(image,{
+
+clipPath:"inset(100% 0% 0% 0%)",
+
+duration:1.4,
+
+ease:"power4.out",
+
+scrollTrigger:{
+
+trigger:image,
+
+start:"top 85%"
+
+}
+
+});
+
+});
+
+/*==============================================
+TEXT REVEAL
+==============================================*/
+
+gsap.utils.toArray("h2,h3").forEach((heading)=>{
+
+gsap.from(heading,{
+
+y:80,
+
+opacity:0,
+
+duration:1,
+
+ease:"power3.out",
+
+scrollTrigger:{
+
+trigger:heading,
+
+start:"top 90%"
+
+}
+
+});
+
+});
+
+/*==============================================
+BUTTON GLOW
+==============================================*/
+
+document.querySelectorAll(".btn-primary").forEach(btn=>{
+
+btn.addEventListener("mouseenter",()=>{
+
+gsap.to(btn,{
+
+boxShadow:"0 0 40px rgba(200,169,106,.6)",
+
+duration:.3
+
+});
+
+});
+
+btn.addEventListener("mouseleave",()=>{
+
+gsap.to(btn,{
+
+boxShadow:"0 0 0 rgba(0,0,0,0)",
+
+duration:.3
+
+});
+
+});
+
+});
+/*==============================================
+CARD TILT EFFECT
+==============================================*/
+
+document.querySelectorAll(".service-card,.why-card,.stat-box").forEach(card=>{
+
+card.addEventListener("mousemove",(e)=>{
+
+const rect=card.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+const y=e.clientY-rect.top;
+
+const rotateY=((x/rect.width)-0.5)*12;
+const rotateX=((y/rect.height)-0.5)*-12;
+
+gsap.to(card,{
+
+rotationY:rotateY,
+
+rotationX:rotateX,
+
+transformPerspective:1000,
+
+duration:.4,
+
+ease:"power2.out"
+
+});
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+gsap.to(card,{
+
+rotationX:0,
+
+rotationY:0,
+
+duration:.5,
+
+ease:"power2.out"
+
+});
+
+});
+
+});
+
+/*==============================================
+BACK TO TOP
+==============================================*/
+
+const backTop=document.querySelector(".back-to-top");
+
+if(backTop){
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>600){
+
+backTop.classList.add("show");
+
+}else{
+
+backTop.classList.remove("show");
+
+}
+
+});
+
+backTop.addEventListener("click",()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+});
+
+}
+
+/*==============================================
+FADE IMAGES
+==============================================*/
+
+gsap.utils.toArray("img").forEach(img=>{
+
+gsap.from(img,{
+
+opacity:0,
+
+duration:1,
+
+scrollTrigger:{
+
+trigger:img,
+
+start:"top 92%"
+
+}
+
+});
+
+});
+
+/*==============================================
+END
+==============================================*/
+
+console.log("Luxury Website Loaded Successfully");
