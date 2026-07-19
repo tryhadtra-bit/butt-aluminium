@@ -30,44 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 /*==============================================
-CUSTOM CURSOR
-==============================================*/
-
-const cursor = document.querySelector(".cursor");
-const cursor2 = document.querySelector(".cursor2");
-
-if (cursor && cursor2) {
-
-    window.addEventListener("mousemove", (e) => {
-
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
-
-        cursor2.style.left = e.clientX + "px";
-        cursor2.style.top = e.clientY + "px";
-
-    });
-
-    document.querySelectorAll("a, button").forEach(item => {
-
-        item.addEventListener("mouseenter", () => {
-
-            cursor.style.transform = "translate(-50%,-50%) scale(2)";
-            cursor2.style.transform = "translate(-50%,-50%) scale(1.6)";
-
-        });
-
-        item.addEventListener("mouseleave", () => {
-
-            cursor.style.transform = "translate(-50%,-50%) scale(1)";
-            cursor2.style.transform = "translate(-50%,-50%) scale(1)";
-
-        });
-
-    });
-
-}
-/*==============================================
 SCROLL PROGRESS BAR
 ==============================================*/
 
