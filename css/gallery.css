@@ -1,0 +1,893 @@
+/*==================================================
+GALLERY PAGE
+BUTT ALUMINIUM
+==================================================*/
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+background:#0b0b0b;
+color:#ffffff;
+overflow-x:hidden;
+line-height:1.8;
+
+}
+
+.container{
+
+width:90%;
+max-width:1400px;
+margin:auto;
+
+}
+
+section{
+
+padding:120px 0;
+
+}
+
+img{
+
+max-width:100%;
+display:block;
+
+}
+
+a{
+
+text-decoration:none;
+
+}
+
+/*==================================================
+SECTION TITLE
+==================================================*/
+
+.section-tag{
+
+display:inline-block;
+font-size:14px;
+font-weight:600;
+letter-spacing:3px;
+text-transform:uppercase;
+color:#C8A96A;
+margin-bottom:18px;
+
+}
+
+.section-heading{
+
+text-align:center;
+max-width:850px;
+margin:0 auto 80px;
+
+}
+
+.section-heading h2{
+
+font-size:58px;
+margin-bottom:20px;
+
+}
+
+.section-heading p{
+
+font-size:18px;
+color:#d0d0d0;
+
+}
+
+/*==================================================
+GALLERY HERO
+==================================================*/
+
+.gallery-hero{
+
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+
+background:
+linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72)),
+url("../images/gallery-banner.jpg")
+center center/cover no-repeat;
+
+}
+
+.gallery-hero h1{
+
+font-size:90px;
+font-weight:700;
+margin-bottom:30px;
+
+}
+
+.gallery-hero h1 span{
+
+color:#C8A96A;
+
+}
+
+.gallery-hero p{
+
+font-size:22px;
+color:#dddddd;
+max-width:800px;
+margin:auto;
+
+}
+
+/*==================================================
+GALLERY INTRO
+==================================================*/
+
+.gallery-intro{
+
+background:#111111;
+
+}
+
+.gallery-intro .container{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+align-items:center;
+
+}
+
+.gallery-image{
+
+overflow:hidden;
+border-radius:25px;
+
+}
+
+.gallery-image img{
+
+width:100%;
+height:650px;
+object-fit:cover;
+border-radius:25px;
+transition:.5s;
+
+}
+
+.gallery-image:hover img{
+
+transform:scale(1.05);
+
+}
+
+.gallery-content h2{
+
+font-size:56px;
+margin-bottom:25px;
+
+}
+
+.gallery-content p{
+
+font-size:18px;
+color:#d0d0d0;
+margin-bottom:25px;
+
+}
+/*==================================================
+GALLERY FILTER
+==================================================*/
+
+.gallery-filter{
+
+background:#0f0f0f;
+padding:60px 0;
+
+}
+
+.filter-buttons{
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+gap:18px;
+
+}
+
+.filter-buttons button{
+
+padding:14px 32px;
+background:#1b1b1b;
+color:#ffffff;
+border:none;
+border-radius:40px;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:.35s;
+
+}
+
+.filter-buttons button:hover,
+.filter-buttons button.active{
+
+background:#C8A96A;
+color:#111111;
+
+}
+
+/*==================================================
+MASONRY GALLERY
+==================================================*/
+
+.gallery-section{
+
+background:#0b0b0b;
+
+}
+
+.gallery-grid{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+
+}
+
+.gallery-item{
+
+position:relative;
+overflow:hidden;
+border-radius:22px;
+cursor:pointer;
+
+}
+
+.gallery-item img{
+
+width:100%;
+height:420px;
+object-fit:cover;
+transition:.6s;
+
+}
+
+.gallery-item:hover img{
+
+transform:scale(1.08);
+
+}
+
+/*==================================================
+IMAGE OVERLAY
+==================================================*/
+
+.gallery-overlay{
+
+position:absolute;
+left:0;
+bottom:0;
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+padding:35px;
+
+background:linear-gradient(
+transparent,
+rgba(0,0,0,.92)
+);
+
+opacity:0;
+transition:.35s;
+
+}
+
+.gallery-item:hover .gallery-overlay{
+
+opacity:1;
+
+}
+
+.gallery-overlay h3{
+
+font-size:30px;
+margin-bottom:10px;
+
+}
+
+.gallery-overlay p{
+
+font-size:16px;
+color:#dddddd;
+margin-bottom:18px;
+
+}
+
+.gallery-overlay i{
+
+font-size:38px;
+color:#C8A96A;
+
+}
+
+/*==================================================
+FEATURED GALLERY
+==================================================*/
+
+.featured-gallery{
+
+background:#111111;
+
+}
+
+.featured-wrapper{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+align-items:center;
+
+}
+
+.featured-wrapper img{
+
+width:100%;
+height:700px;
+object-fit:cover;
+border-radius:25px;
+transition:.5s;
+
+}
+
+.featured-wrapper img:hover{
+
+transform:scale(1.05);
+
+}
+
+.featured-content h2{
+
+font-size:54px;
+margin-bottom:25px;
+
+}
+
+.featured-content p{
+
+font-size:18px;
+color:#d5d5d5;
+line-height:1.9;
+margin-bottom:22px;
+
+}
+/*==================================================
+GALLERY STATISTICS
+==================================================*/
+
+.gallery-stats{
+
+background:#0b0b0b;
+
+}
+
+.gallery-stats-grid{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+
+}
+
+.gallery-stat{
+
+background:#181818;
+padding:50px 30px;
+text-align:center;
+border-radius:22px;
+border:1px solid rgba(255,255,255,.05);
+transition:.4s;
+
+}
+
+.gallery-stat:hover{
+
+transform:translateY(-10px);
+border-color:#C8A96A;
+box-shadow:0 20px 45px rgba(0,0,0,.35);
+
+}
+
+.gallery-stat h2{
+
+font-size:60px;
+color:#C8A96A;
+margin-bottom:15px;
+font-weight:700;
+
+}
+
+.gallery-stat p{
+
+font-size:18px;
+color:#d5d5d5;
+
+}
+
+/*==================================================
+WHY OUR GALLERY
+==================================================*/
+
+.gallery-features{
+
+background:#111111;
+
+}
+
+.gallery-features-grid{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+
+}
+
+.gallery-feature{
+
+background:#1b1b1b;
+padding:45px 30px;
+text-align:center;
+border-radius:22px;
+transition:.35s;
+
+}
+
+.gallery-feature:hover{
+
+transform:translateY(-10px);
+background:#202020;
+
+}
+
+.gallery-feature i{
+
+font-size:50px;
+color:#C8A96A;
+margin-bottom:25px;
+
+}
+
+.gallery-feature h3{
+
+font-size:25px;
+margin-bottom:15px;
+
+}
+
+.gallery-feature p{
+
+font-size:16px;
+color:#d5d5d5;
+line-height:1.8;
+
+}
+
+/*==================================================
+CLIENT TESTIMONIALS
+==================================================*/
+
+.gallery-testimonials{
+
+background:#0f0f0f;
+
+}
+
+.gallery-testimonial-grid{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:35px;
+
+}
+
+.gallery-testimonial{
+
+background:#1a1a1a;
+padding:40px;
+border-radius:22px;
+transition:.35s;
+
+}
+
+.gallery-testimonial:hover{
+
+transform:translateY(-10px);
+
+}
+
+.gallery-testimonial i{
+
+font-size:42px;
+color:#C8A96A;
+margin-bottom:20px;
+
+}
+
+.gallery-testimonial p{
+
+font-size:17px;
+line-height:1.9;
+color:#d5d5d5;
+margin-bottom:25px;
+
+}
+
+.gallery-client{
+
+display:flex;
+align-items:center;
+gap:18px;
+
+}
+
+.gallery-client img{
+
+width:70px;
+height:70px;
+border-radius:50%;
+object-fit:cover;
+
+}
+
+.gallery-client h4{
+
+font-size:22px;
+
+}
+
+.gallery-client span{
+
+font-size:15px;
+color:#C8A96A;
+
+}
+
+/*==================================================
+CALL TO ACTION
+==================================================*/
+
+.gallery-cta{
+
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+url("../images/gallery-cta.jpg")
+center center/cover no-repeat;
+
+text-align:center;
+
+}
+
+.gallery-cta h2{
+
+font-size:60px;
+margin-bottom:25px;
+
+}
+
+.gallery-cta p{
+
+font-size:20px;
+max-width:850px;
+margin:0 auto 40px;
+line-height:1.9;
+color:#dddddd;
+
+}
+
+.gallery-cta .btn-primary{
+
+display:inline-block;
+padding:18px 45px;
+background:#C8A96A;
+color:#111;
+font-weight:600;
+border-radius:50px;
+transition:.35s;
+
+}
+
+.gallery-cta .btn-primary:hover{
+
+background:#ffffff;
+transform:translateY(-5px);
+
+}
+/*==================================================
+RESPONSIVE DESIGN
+==================================================*/
+
+@media (max-width:1200px){
+
+.gallery-grid,
+.gallery-stats-grid,
+.gallery-features-grid,
+.gallery-testimonial-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.gallery-intro .container,
+.featured-wrapper{
+
+grid-template-columns:1fr;
+
+}
+
+.featured-wrapper img{
+
+max-width:650px;
+margin:auto;
+
+}
+
+}
+
+/*==============================
+TABLET
+==============================*/
+
+@media (max-width:768px){
+
+section{
+
+padding:90px 0;
+
+}
+
+.gallery-hero{
+
+height:80vh;
+
+}
+
+.gallery-hero h1{
+
+font-size:52px;
+
+}
+
+.gallery-hero p{
+
+font-size:18px;
+
+}
+
+.section-heading h2{
+
+font-size:40px;
+
+}
+
+.gallery-content h2,
+.featured-content h2{
+
+font-size:38px;
+
+}
+
+.gallery-grid,
+.gallery-stats-grid,
+.gallery-features-grid,
+.gallery-testimonial-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.gallery-image img,
+.featured-wrapper img{
+
+height:500px;
+
+}
+
+.filter-buttons{
+
+gap:12px;
+
+}
+
+.filter-buttons button{
+
+padding:12px 25px;
+font-size:14px;
+
+}
+
+.gallery-cta h2{
+
+font-size:42px;
+
+}
+
+.gallery-cta p{
+
+font-size:17px;
+
+}
+
+}
+
+/*==============================
+MOBILE
+==============================*/
+
+@media (max-width:480px){
+
+.container{
+
+width:92%;
+
+}
+
+.gallery-hero h1{
+
+font-size:38px;
+line-height:1.2;
+
+}
+
+.gallery-hero p{
+
+font-size:16px;
+
+}
+
+.section-heading h2{
+
+font-size:30px;
+
+}
+
+.gallery-content h2,
+.featured-content h2{
+
+font-size:30px;
+
+}
+
+.gallery-content p,
+.featured-content p{
+
+font-size:16px;
+
+}
+
+.gallery-image img,
+.featured-wrapper img{
+
+height:340px;
+
+}
+
+.gallery-item img{
+
+height:280px;
+
+}
+
+.gallery-overlay{
+
+padding:22px;
+
+}
+
+.gallery-overlay h3{
+
+font-size:22px;
+
+}
+
+.gallery-overlay p{
+
+font-size:15px;
+
+}
+
+.gallery-stat,
+.gallery-feature,
+.gallery-testimonial{
+
+padding:30px 20px;
+
+}
+
+.gallery-client img{
+
+width:60px;
+height:60px;
+
+}
+
+.gallery-cta{
+
+padding:80px 0;
+
+}
+
+.gallery-cta h2{
+
+font-size:32px;
+
+}
+
+.gallery-cta p{
+
+font-size:16px;
+
+}
+
+.gallery-cta .btn-primary{
+
+display:block;
+width:100%;
+text-align:center;
+
+}
+
+}
+
+/*==================================================
+SMOOTH ANIMATIONS
+==================================================*/
+
+.gallery-item,
+.gallery-stat,
+.gallery-feature,
+.gallery-testimonial{
+
+transition:all .35s ease;
+
+}
+
+.gallery-item:hover,
+.gallery-stat:hover,
+.gallery-feature:hover,
+.gallery-testimonial:hover{
+
+transform:translateY(-10px);
+
+}
+
+.gallery-item img,
+.gallery-image img,
+.featured-wrapper img{
+
+transition:transform .5s ease;
+
+}
+
+.gallery-item:hover img,
+.gallery-image:hover img,
+.featured-wrapper:hover img{
+
+transform:scale(1.05);
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}

@@ -631,3 +631,282 @@ background:#fff;
 transform:translateY(-5px);
 
 }
+/*==================================================
+RESPONSIVE DESIGN
+==================================================*/
+
+@media (max-width:1200px){
+
+.portfolio-grid,
+.portfolio-stats-grid,
+.testimonial-grid,
+.awards-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.portfolio-intro .container,
+.featured-wrapper{
+
+grid-template-columns:1fr;
+
+}
+
+.featured-image{
+
+max-width:650px;
+margin:auto;
+
+}
+
+}
+
+/*==============================
+TABLET
+==============================*/
+
+@media (max-width:768px){
+
+section{
+
+padding:90px 0;
+
+}
+
+.portfolio-hero{
+
+height:80vh;
+
+}
+
+.portfolio-hero h1{
+
+font-size:52px;
+
+}
+
+.portfolio-hero p{
+
+font-size:18px;
+
+}
+
+.section-heading h2{
+
+font-size:40px;
+
+}
+
+.portfolio-content h2,
+.featured-content h2{
+
+font-size:38px;
+
+}
+
+.portfolio-grid,
+.portfolio-stats-grid,
+.testimonial-grid,
+.awards-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.portfolio-intro img,
+.featured-image img{
+
+height:500px;
+
+}
+
+.filter-buttons{
+
+gap:12px;
+
+}
+
+.filter-buttons button{
+
+padding:12px 25px;
+font-size:14px;
+
+}
+
+.portfolio-cta h2{
+
+font-size:42px;
+
+}
+
+.portfolio-cta p{
+
+font-size:17px;
+
+}
+
+}
+
+/*==============================
+MOBILE
+==============================*/
+
+@media (max-width:480px){
+
+.container{
+
+width:92%;
+
+}
+
+.portfolio-hero h1{
+
+font-size:38px;
+line-height:1.2;
+
+}
+
+.portfolio-hero p{
+
+font-size:16px;
+
+}
+
+.section-heading h2{
+
+font-size:30px;
+
+}
+
+.portfolio-content h2,
+.featured-content h2{
+
+font-size:30px;
+
+}
+
+.portfolio-content p,
+.featured-content p{
+
+font-size:16px;
+
+}
+
+.portfolio-intro img,
+.featured-image img{
+
+height:340px;
+
+}
+
+.project-card img{
+
+height:280px;
+
+}
+
+.project-overlay{
+
+padding:25px;
+
+}
+
+.project-overlay h3{
+
+font-size:22px;
+
+}
+
+.project-overlay p{
+
+font-size:15px;
+
+}
+
+.testimonial-card,
+.award-box,
+.portfolio-stat{
+
+padding:30px 20px;
+
+}
+
+.client img{
+
+width:60px;
+height:60px;
+
+}
+
+.portfolio-cta{
+
+padding:80px 0;
+
+}
+
+.portfolio-cta h2{
+
+font-size:32px;
+
+}
+
+.portfolio-cta p{
+
+font-size:16px;
+
+}
+
+.portfolio-cta .btn-primary{
+
+display:block;
+width:100%;
+text-align:center;
+
+}
+
+}
+
+/*==================================================
+SMOOTH ANIMATIONS
+==================================================*/
+
+.project-card,
+.portfolio-stat,
+.testimonial-card,
+.award-box{
+
+transition:all .35s ease;
+
+}
+
+.project-card:hover,
+.portfolio-stat:hover,
+.testimonial-card:hover,
+.award-box:hover{
+
+transform:translateY(-10px);
+
+}
+
+.project-card img,
+.portfolio-intro img,
+.featured-image img{
+
+transition:transform .5s ease;
+
+}
+
+.project-card:hover img,
+.portfolio-intro img:hover,
+.featured-image:hover img{
+
+transform:scale(1.05);
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
