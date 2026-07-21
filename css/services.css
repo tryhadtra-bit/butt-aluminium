@@ -1,32 +1,423 @@
 /*==================================================
+BUTT ALUMINIUM
+SERVICES PAGE CSS
+==================================================*/
+
+/*==============================
+ROOT
+==============================*/
+
+:root{
+
+    --gold:#D4AF37;
+
+    --dark:#111111;
+
+    --dark2:#1b1b1b;
+
+    --light:#ffffff;
+
+    --gray:#cfcfcf;
+
+    --transition:.45s ease;
+
+}
+
+/*==============================
+RESET
+==============================*/
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#111;
+
+    color:#fff;
+
+    overflow-x:hidden;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+.container{
+
+    width:90%;
+
+    max-width:1320px;
+
+    margin:auto;
+
+}
+
+/*==============================
+PAGE BANNER
+==============================*/
+
+.page-banner{
+
+    position:relative;
+
+    height:520px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:url("../images/services-banner.jpg") center center/cover no-repeat;
+
+}
+
+.page-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+}
+
+.page-content{
+
+    position:relative;
+
+    z-index:5;
+
+    text-align:center;
+
+}
+
+.page-content span{
+
+    color:var(--gold);
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.page-content h1{
+
+    font-size:60px;
+
+    margin:20px 0;
+
+    font-weight:700;
+
+}
+
+.page-content p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:#ddd;
+
+    line-height:1.9;
+
+    font-size:17px;
+
+}
+/*==================================================
+SERVICES SECTION
+==================================================*/
+
+.services{
+
+    padding:120px 0;
+
+    background:#111;
+
+}
+
+.section-heading{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+.section-heading span{
+
+    display:inline-block;
+
+    color:var(--gold);
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+.section-heading h2{
+
+    font-size:52px;
+
+    color:#fff;
+
+    margin-bottom:20px;
+
+    font-weight:700;
+
+}
+
+.section-heading p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:#cfcfcf;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+}
+
+/*==================================================
+SERVICES GRID
+==================================================*/
+
+.services-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+/*==================================================
 SERVICE CARD
 ==================================================*/
 
 .service-card{
 
-position:relative;
+    position:relative;
 
-overflow:hidden;
+    min-height:420px;
 
-background:#181818;
+    border-radius:20px;
 
-border-radius:18px;
+    overflow:hidden;
 
-border:1px solid rgba(255,255,255,.08);
+    background:#1b1b1b;
 
-transition:.45s ease;
+    border:1px solid rgba(255,255,255,.08);
 
-cursor:pointer;
+    transition:var(--transition);
+
+    cursor:pointer;
 
 }
 
 .service-card:hover{
 
-transform:translateY(-8px);
+    transform:translateY(-10px);
 
-border-color:var(--gold);
+    border-color:var(--gold);
 
-box-shadow:0 20px 50px rgba(212,175,55,.18);
+    box-shadow:0 25px 60px rgba(212,175,55,.20);
+
+}
+/*==================================================
+SERVICE CONTENT
+==================================================*/
+
+.service-content{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+    z-index:10;
+
+    transition:all .5s ease;
+
+    background:#1b1b1b;
+
+}
+
+/*==================================================
+SERVICE ICON
+==================================================*/
+
+.service-icon{
+
+    width:85px;
+
+    height:85px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+    transition:.4s;
+
+}
+
+.service-icon i{
+
+    font-size:32px;
+
+    color:#111;
+
+}
+
+.service-card:hover .service-icon{
+
+    transform:rotate(360deg);
+
+}
+
+/*==================================================
+TITLE
+==================================================*/
+
+.service-content h3{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#fff;
+
+    margin-bottom:20px;
+
+}
+
+/*==================================================
+DESCRIPTION
+==================================================*/
+
+.service-content p{
+
+    color:#d6d6d6;
+
+    line-height:1.8;
+
+    font-size:16px;
+
+    margin-bottom:30px;
+
+}
+
+/*==================================================
+BUTTON
+==================================================*/
+
+.service-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 28px;
+
+    border:2px solid var(--gold);
+
+    color:var(--gold);
+
+    border-radius:8px;
+
+    font-weight:600;
+
+    transition:.4s;
+
+}
+
+.service-btn:hover{
+
+    background:var(--gold);
+
+    color:#111;
+
+}
+
+.service-btn i{
+
+    transition:.3s;
+
+}
+
+.service-btn:hover i{
+
+    transform:translateX(6px);
 
 }
 /*==================================================
@@ -35,199 +426,417 @@ HOVER IMAGE
 
 .service-hover-image{
 
-position:absolute;
+    position:absolute;
 
-top:0;
+    top:0;
 
-left:0;
+    left:0;
 
-width:100%;
+    width:100%;
 
-height:100%;
+    height:100%;
 
-opacity:0;
+    overflow:hidden;
 
-visibility:hidden;
+    opacity:0;
 
-transform:scale(.9);
+    visibility:hidden;
 
-transition:all .6s cubic-bezier(.22,1,.36,1);
+    transform:scale(1.12);
 
-z-index:5;
+    transition:all .6s cubic-bezier(.22,1,.36,1);
+
+    z-index:5;
 
 }
 
 .service-hover-image img{
 
-width:100%;
+    width:100%;
 
-height:100%;
+    height:100%;
 
-object-fit:cover;
+    object-fit:cover;
+
+    transition:transform .7s ease;
 
 }
+
+/*==================================================
+IMAGE OVERLAY
+==================================================*/
+
+.service-hover-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,.45);
+
+    opacity:0;
+
+    transition:.5s;
+
+    z-index:2;
+
+}
+
+/*==================================================
+HOVER IMAGE SHOW
+==================================================*/
 
 .service-card:hover .service-hover-image{
 
-opacity:1;
+    opacity:1;
 
-visibility:visible;
+    visibility:visible;
 
-transform:scale(1);
-
-}
-
-/*==================================================
-CONTENT
-==================================================*/
-
-.service-content{
-
-position:relative;
-
-z-index:20;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-height:100%;
-
-padding:40px;
-
-text-align:center;
-
-transition:all .5s ease;
-
-}
-
-.service-card:hover .service-content{
-
-opacity:0;
-
-transform:translateY(-30px);
-
-}
-
-/*==================================================
-IMAGE TITLE
-==================================================*/
-
-.service-hover-title{
-
-position:absolute;
-
-left:50%;
-
-top:50%;
-
-transform:translate(-50%,-50%);
-
-font-size:36px;
-
-font-weight:700;
-
-color:#fff;
-
-letter-spacing:2px;
-
-opacity:0;
-
-transition:.5s;
-
-z-index:10;
-
-}
-
-.service-card:hover .service-hover-title{
-
-opacity:1;
-
-}
-
-/*==================================================
-IMAGE REVEAL ANIMATION
-==================================================*/
-
-.service-hover-image{
-
-position:absolute;
-
-left:0;
-
-bottom:-100%;
-
-width:100%;
-
-height:100%;
-
-overflow:hidden;
-
-transition:.6s cubic-bezier(.25,.8,.25,1);
-
-z-index:5;
-
-}
-
-.service-hover-image img{
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-transform:scale(1.1);
-
-transition:.8s ease;
-
-}
-
-/* Hover */
-
-.service-card:hover .service-hover-image{
-
-bottom:0;
+    transform:scale(1);
 
 }
 
 .service-card:hover .service-hover-image img{
 
-transform:scale(1);
+    transform:scale(1.08);
+
+}
+
+.service-card:hover .service-hover-image::before{
+
+    opacity:1;
 
 }
 
 /*==================================================
-CONTENT ANIMATION
+CONTENT HIDE
 ==================================================*/
+
+.service-card:hover .service-content{
+
+    opacity:0;
+
+    transform:translateY(-35px);
+
+    pointer-events:none;
+
+}
+
+/*==================================================
+HOVER TITLE
+==================================================*/
+
+.service-hover-title{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    color:#fff;
+
+    font-size:34px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-align:center;
+
+    opacity:0;
+
+    transition:.45s ease;
+
+    z-index:10;
+
+    text-shadow:0 10px 30px rgba(0,0,0,.7);
+
+}
+
+.service-card:hover .service-hover-title{
+
+    opacity:1;
+
+}
+/*==================================================
+CALL TO ACTION
+==================================================*/
+
+.services-cta{
+
+    padding:110px 0;
+
+    background:linear-gradient(135deg,#1a1a1a,#111);
+
+    text-align:center;
+
+}
+
+.services-cta-content{
+
+    max-width:850px;
+
+    margin:auto;
+
+}
+
+.services-cta-content h2{
+
+    font-size:48px;
+
+    color:#fff;
+
+    margin-bottom:20px;
+
+    font-weight:700;
+
+}
+
+.services-cta-content p{
+
+    color:#cfcfcf;
+
+    font-size:17px;
+
+    line-height:1.9;
+
+    margin-bottom:40px;
+
+}
+
+.services-cta .btn{
+
+    display:inline-block;
+
+    padding:16px 42px;
+
+    background:var(--gold);
+
+    color:#111;
+
+    border-radius:8px;
+
+    font-weight:700;
+
+    transition:.4s ease;
+
+}
+
+.services-cta .btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 18px 35px rgba(212,175,55,.35);
+
+}
+
+/*==================================================
+RESPONSIVE
+==================================================*/
+
+@media(max-width:1200px){
+
+.services-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.page-banner{
+
+height:420px;
+
+}
+
+.page-content h1{
+
+font-size:42px;
+
+}
+
+.section-heading h2{
+
+font-size:38px;
+
+}
+
+.services-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.service-card{
+
+min-height:380px;
+
+}
+
+.services-cta-content h2{
+
+font-size:34px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.container{
+
+width:92%;
+
+}
+
+.page-content h1{
+
+font-size:34px;
+
+}
+
+.page-content p{
+
+font-size:15px;
+
+}
+
+.section-heading h2{
+
+font-size:30px;
+
+}
+
+.section-heading p{
+
+font-size:15px;
+
+}
 
 .service-content{
 
-position:relative;
+padding:30px;
 
-z-index:10;
+}
 
-transition:.5s ease;
+.service-content h3{
+
+font-size:24px;
+
+}
+
+.service-hover-title{
+
+font-size:28px;
+
+}
+
+.services-cta{
+
+padding:80px 0;
+
+}
+
+.services-cta-content h2{
+
+font-size:28px;
+
+}
+
+.services-cta-content p{
+
+font-size:15px;
+
+}
+
+.services-cta .btn{
+
+padding:14px 30px;
+
+}
+
+}
+/*==================================================
+SMOOTH ANIMATIONS
+==================================================*/
+
+.service-card,
+.service-content,
+.service-hover-image,
+.service-hover-image img,
+.service-hover-title,
+.service-btn,
+.service-icon{
+
+transition:all .45s ease;
+
+}
+
+/*==================================================
+HOVER EFFECTS
+==================================================*/
+
+.service-card:hover{
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.35),
+0 0 35px rgba(212,175,55,.20);
+
+}
+
+.service-card:hover .service-hover-title{
+
+animation:fadeUp .6s ease forwards;
 
 }
 
 .service-card:hover .service-content{
 
-opacity:0;
-
-transform:translateY(-30px);
+animation:fadeOut .35s ease forwards;
 
 }
 
 /*==================================================
-REVERSE ANIMATION
+KEYFRAMES
 ==================================================*/
 
-.service-card:not(:hover) .service-content{
+@keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translate(-50%,-35%);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translate(-50%,-50%);
+
+}
+
+}
+
+@keyframes fadeOut{
+
+0%{
 
 opacity:1;
 
@@ -235,103 +844,59 @@ transform:translateY(0);
 
 }
 
-.service-card:not(:hover) .service-hover-image{
-
-bottom:-100%;
-
-}
-/*==================================================
-IMAGE OVERLAY
-==================================================*/
-
-.service-hover-image::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:rgba(0,0,0,.45);
+100%{
 
 opacity:0;
 
-transition:.5s;
-
-z-index:1;
+transform:translateY(-30px);
 
 }
-
-.service-card:hover .service-hover-image::before{
-
-opacity:1;
 
 }
 
 /*==================================================
-IMAGE TITLE
+CUSTOM SCROLLBAR
 ==================================================*/
 
-.service-hover-title{
+::-webkit-scrollbar{
 
-position:absolute;
-
-left:50%;
-
-top:50%;
-
-transform:translate(-50%,-50%);
-
-color:#fff;
-
-font-size:34px;
-
-font-weight:700;
-
-letter-spacing:2px;
-
-text-align:center;
-
-opacity:0;
-
-z-index:2;
-
-transition:.5s ease;
+width:10px;
 
 }
 
-.service-card:hover .service-hover-title{
+::-webkit-scrollbar-track{
 
-opacity:1;
+background:#111;
 
-transform:translate(-50%,-50%);
+}
+
+::-webkit-scrollbar-thumb{
+
+background:var(--gold);
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#c59b22;
 
 }
 
 /*==================================================
-PREMIUM GLOW
+TEXT SELECTION
 ==================================================*/
 
-.service-card:hover{
+::selection{
 
-box-shadow:
-0 25px 60px rgba(212,175,55,.25);
+background:var(--gold);
+
+color:#111;
 
 }
 
 /*==================================================
-CURSOR
+END OF FILE
 ==================================================*/
-
-.service-card{
-
-cursor:pointer;
-
-}
 
