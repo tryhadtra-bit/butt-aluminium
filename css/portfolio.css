@@ -910,3 +910,27 @@ html{
 scroll-behavior:smooth;
 
 }
+.view-project-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    color:#d4af37;
+    font-size:18px;
+    font-weight:700;
+
+    text-decoration:none;
+    background:transparent;
+}
+
+.view-project-btn:hover{
+    color:#fff;
+}
+
+.view-project-btn i{
+    transition:.3s;
+}
+
+.view-project-btn:hover i{
+    transform:translateX(6px);
+}
