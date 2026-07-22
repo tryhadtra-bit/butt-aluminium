@@ -950,3 +950,281 @@ END
 ==============================================*/
 
 console.log("Luxury Website Loaded Successfully");
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projects = document.querySelectorAll(".project-card");
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        document.querySelector(".filter-btn.active").classList.remove("active");
+
+        button.classList.add("active");
+
+        const filter = button.getAttribute("data-filter");
+
+        projects.forEach(project => {
+
+            if(filter === "all"){
+
+                project.style.display = "block";
+
+            }
+
+            else if(project.classList.contains(filter)){
+
+                project.style.display = "block";
+
+            }
+
+            else{
+
+                project.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+});
+const filterBtns = document.querySelectorAll(".filter-btn");
+const projects = document.querySelectorAll(".project-card");
+
+filterBtns.forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        filterBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const filter = btn.dataset.filter;
+
+        projects.forEach(project => {
+
+            if (filter === "all") {
+
+                project.style.display = "block";
+
+            } else if (project.classList.contains(filter)) {
+
+                project.style.display = "block";
+
+            } else {
+
+                project.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+});
+/*=========================================
+PROJECT GALLERY DATA
+=========================================*/
+
+const projectImages = {
+
+project1:[
+"images/project1/1.jpg",
+"images/project1/2.jpg",
+"images/project1/3.jpg",
+"images/project1/4.jpg",
+"images/project1/5.jpg"
+],
+
+project2:[
+"images/project2/1.jpg",
+"images/project2/2.jpg",
+"images/project2/3.jpg",
+"images/project2/4.jpg"
+],
+
+project3:[
+"images/project3/1.jpg",
+"images/project3/2.jpg",
+"images/project3/3.jpg"
+],
+
+project4:[
+"images/project4/1.jpg"
+],
+
+project5:[
+"images/project5/1.jpg"
+],
+
+project6:[
+"images/project6/1.jpg"
+]
+
+};
+
+let currentProject = [];
+let currentIndex = 0;
+
+const lightbox = document.querySelector(".lightbox");
+const lightboxImage = document.querySelector(".lightbox-image");
+
+const galleryItems = document.querySelectorAll(".gallery-item");
+/*=========================================
+OPEN PROJECT
+=========================================*/
+
+galleryItems.forEach(item=>{
+
+item.addEventListener("click",()=>{
+
+const project=item.dataset.project;
+
+currentProject=projectImages[project];
+
+currentIndex=0;
+
+lightbox.classList.add("active");
+
+lightboxImage.src=currentProject[currentIndex];
+resetZoom();
+document.querySelector(".image-counter").innerHTML =
+(currentIndex+1)+" / "+currentProject.length;
+
+});
+
+});
+
+/*=========================================
+NEXT IMAGE
+=========================================*/
+
+document.querySelector(".next").onclick=function(){
+
+let next=currentIndex+1;
+
+if(next>=currentProject.length){
+
+next=0;
+
+}
+
+changeImage(next);
+
+};
+
+resetZoom();
+document.querySelector(".image-counter").innerHTML =
+(currentIndex+1)+" / "+currentProject.length;
+;
+
+/*=========================================
+PREVIOUS IMAGE
+=========================================*/
+
+document.querySelector(".prev").onclick=function(){
+
+let prev=currentIndex-1;
+
+if(prev<0){
+
+prev=currentProject.length-1;
+
+}
+
+changeImage(prev);
+
+};
+
+resetZoom();
+document.querySelector(".image-counter").innerHTML =
+(currentIndex+1)+" / "+currentProject.length;
+/*=========================================
+CLOSE LIGHTBOX
+=========================================*/
+
+document.querySelector(".close").onclick = function(){
+
+    lightbox.classList.remove("active");
+
+};
+
+/*=========================================
+CLICK OUTSIDE CLOSE
+=========================================*/
+
+lightbox.addEventListener("click",function(e){
+
+    if(e.target===lightbox){
+
+        lightbox.classList.remove("active");
+
+    }
+
+});
+
+/*=========================================
+KEYBOARD SUPPORT
+=========================================*/
+
+document.addEventListener("keydown",function(e){
+
+    if(!lightbox.classList.contains("active")) return;
+
+    if(e.key==="Escape"){
+
+        lightbox.classList.remove("active");
+
+    }
+
+    if(e.key==="ArrowRight"){
+
+        document.querySelector(".next").click();
+
+    }
+
+    if(e.key==="ArrowLeft"){
+
+        document.querySelector(".prev").click();
+
+    }
+
+});
+/*=========================================
+DOUBLE CLICK ZOOM
+=========================================*/
+
+lightboxImage.addEventListener("dblclick",function(){
+
+    lightboxImage.classList.toggle("zoom");
+
+});
+
+/*=========================================
+RESET ZOOM ON IMAGE CHANGE
+=========================================*/
+
+function resetZoom(){
+
+    lightboxImage.classList.remove("zoom");
+
+}
+function changeImage(index){
+
+lightboxImage.classList.add("fade");
+
+setTimeout(()=>{
+
+currentIndex=index;
+
+lightboxImage.src=currentProject[currentIndex];
+
+document.querySelector(".image-counter").innerHTML=
+(currentIndex+1)+" / "+currentProject.length;
+
+resetZoom();
+
+lightboxImage.classList.remove("fade");
+
+},180);
+
+}

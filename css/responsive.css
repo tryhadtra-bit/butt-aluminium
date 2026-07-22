@@ -963,3 +963,30 @@ transform:none;
 /*==================================================
 THE END
 ==================================================*/
+.image-counter{
+
+position:absolute;
+
+bottom:35px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+color:#fff;
+
+font-size:18px;
+
+font-weight:600;
+
+padding:12px 22px;
+
+background:rgba(0,0,0,.45);
+
+border-radius:50px;
+
+backdrop-filter:blur(15px);
+
+letter-spacing:2px;
+
+}
