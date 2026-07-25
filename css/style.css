@@ -2731,13 +2731,21 @@ PROJECT INFO
     grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
     gap:30px;
 }
+/* Information Cards Heading */
 
-.info-card{
-    background:#fff;
-    padding:40px 25px;
-    text-align:center;
-    border-radius:15px;
-    transition:.4s;
+.info-card h3{
+    color:#111;
+    font-size:24px;
+    font-weight:700;
+    margin:15px 0 10px;
+}
+
+/* Information Cards Text */
+
+.info-card p{
+    color:#ffffff;
+    font-size:16px;
+    line-height:1.7;
 }
 
 .info-card:hover{
@@ -2899,4 +2907,219 @@ RESPONSIVE
 
 .view-project:hover i{
     transform:translateX(6px);
+}
+/*=====================================
+HARIPUR HOSPITAL HERO
+=====================================*/
+
+.haripur-hero{
+
+    position:relative;
+
+    width:100%;
+
+    height:100vh;
+
+    overflow:hidden;
+
+}
+
+.haripur-hero img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.haripur-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        rgba(0,0,0,.65),
+        rgba(0,0,0,.45)
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    color:#fff;
+
+}
+
+.haripur-overlay h1{
+
+    font-size:72px;
+
+    font-weight:700;
+
+    text-shadow:0 10px 30px rgba(0,0,0,.5);
+
+}
+
+@media(max-width:768px){
+
+.haripur-overlay h1{
+
+    font-size:38px;
+
+}
+
+}
+/*=====================================
+SERVICES GRID
+=====================================*/
+
+.services-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:30px;
+
+margin-top:50px;
+
+}
+
+/*=====================================
+SERVICE CARD
+=====================================*/
+
+.service-card{
+
+background:#fff;
+
+padding:40px 30px;
+
+border-radius:15px;
+
+text-align:center;
+
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+transition:.4s;
+
+}
+
+.service-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 20px 45px rgba(0,0,0,.15);
+
+}
+
+.service-card i{
+
+font-size:55px;
+
+color:#d4af37;
+
+margin-bottom:20px;
+
+}
+
+.service-card h3{
+
+font-size:26px;
+
+margin-bottom:15px;
+
+color:#111;
+
+}
+
+.service-card p{
+
+font-size:16px;
+
+line-height:1.8;
+
+color:#666;
+
+}
+
+/*=====================================
+MOBILE
+=====================================*/
+
+@media(max-width:768px){
+
+.services-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.service-card{
+
+padding:30px 20px;
+
+}
+
+}
+/*=====================================
+PREMIUM SERVICE CARD
+=====================================*/
+
+.service-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    cursor:pointer;
+    transition:.5s;
+}
+
+.service-card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.service-content{
+    position:absolute;
+    left:0;
+    bottom:-100%;
+    width:100%;
+    background:rgba(0,0,0,.82);
+    color:#fff;
+    padding:25px;
+    transition:.5s;
+}
+
+.service-content h3{
+    color:#d4af37;
+    margin-bottom:12px;
+}
+
+.service-card:hover img{
+    transform:scale(1.12);
+}
+
+.service-card:hover .service-content{
+    bottom:0;
+}
+
+/* Mobile Click Effect */
+
+.service-card.active .service-content{
+    bottom:0;
+}
+
+.service-card.active img{
+    transform:scale(1.12);
 }
