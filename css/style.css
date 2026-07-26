@@ -3529,3 +3529,39 @@ PREMIUM SERVICE CARD
     transform:translateX(8px);
 
 }
+/*==================================================
+WHATSAPP
+==================================================*/
+
+.whatsapp{
+
+position:fixed;
+right:25px;
+bottom:25px;
+
+width:60px;
+height:60px;
+
+background:#25D366;
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:30px;
+color:#fff;
+
+z-index:999;
+
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+transition:.35s;
+
+}
+
+.whatsapp:hover{
+
+transform:translateY(-6px) scale(1.08);
+
+}
