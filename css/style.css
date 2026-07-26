@@ -2978,39 +2978,40 @@ HARIPUR HOSPITAL HERO
 }
 
 }
-/*=====================================
-SERVICES GRID
-=====================================*/
+/*=========================================
+SERVICES
+=========================================*/
+
+.services{
+
+padding:120px 0;
+background:#0b0b0b;
+
+}
 
 .services-grid{
 
 display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-
-gap:30px;
-
-margin-top:50px;
+grid-template-columns:repeat(2,1fr);
+gap:35px;
 
 }
 
-/*=====================================
-SERVICE CARD
-=====================================*/
-
 .service-card{
 
-background:#fff;
+background:#111;
 
-padding:40px 30px;
+padding:55px;
 
-border-radius:15px;
+border-top:3px solid #C8A96A;
 
-text-align:center;
-
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+border-radius:0;
 
 transition:.4s;
+
+position:relative;
+
+overflow:hidden;
 
 }
 
@@ -3018,40 +3019,356 @@ transition:.4s;
 
 transform:translateY(-10px);
 
-box-shadow:0 20px 45px rgba(0,0,0,.15);
+background:#161616;
 
 }
 
-.service-card i{
+.service-number{
 
-font-size:55px;
+font-size:18px;
 
-color:#d4af37;
+font-weight:700;
 
-margin-bottom:20px;
+color:#C8A96A;
+
+margin-bottom:25px;
 
 }
 
 .service-card h3{
 
-font-size:26px;
+font-family:'Cormorant Garamond',serif;
 
-margin-bottom:15px;
+font-size:44px;
 
-color:#111;
+font-weight:600;
+
+line-height:1.1;
+
+margin-bottom:25px;
+
+color:#fff;
 
 }
 
 .service-card p{
 
-font-size:16px;
+font-size:17px;
 
 line-height:1.8;
 
-color:#666;
+color:#bdbdbd;
+
+margin-bottom:40px;
 
 }
 
+.service-card a{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:14px;
+
+font-size:13px;
+
+font-weight:600;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:#C8A96A;
+
+transition:.35s;
+
+}
+
+.service-card a i{
+
+font-size:22px;
+
+transition:.35s;
+
+}
+
+.service-card:hover a i{
+
+transform:translateX(8px);
+
+}
+
+/*==================================================
+SERVICE CARD
+==================================================*/
+
+.service-card{
+
+    position:relative;
+    overflow:hidden;
+
+    background:#ffffff;
+
+    border-radius:0;
+
+    border-top:4px solid #C8A96A;
+
+    box-shadow:0 15px 45px rgba(0,0,0,.15);
+
+    transition:.45s ease;
+
+    height:420px;
+
+}
+
+.service-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 30px 70px rgba(0,0,0,.30);
+
+}
+
+/*==================================================
+NORMAL CONTENT
+==================================================*/
+
+.service-content{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:55px;
+
+    background:#ffffff;
+
+    transition:.45s ease;
+
+    z-index:2;
+
+}
+
+.service-icon{
+
+    font-size:70px;
+
+    color:#C8A96A;
+
+    margin-bottom:25px;
+
+}
+
+.service-content h3{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:42px;
+
+    color:#111;
+
+    margin-bottom:18px;
+
+}
+
+.service-content p{
+
+    color:#666;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+}
+
+.service-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#C8A96A;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+.service-btn i{
+
+    transition:.35s;
+
+}
+
+.service-card:hover .service-btn i{
+
+    transform:translateX(8px);
+
+}
+/*==================================================
+HOVER IMAGE
+==================================================*/
+
+.service-hover-image{
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    overflow:hidden;
+
+    transition:.45s ease;
+
+    z-index:3;
+
+}
+
+.service-hover-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.8s ease;
+
+}
+
+.service-hover-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.15)
+    );
+
+}
+
+.service-hover-title{
+
+    position:absolute;
+
+    left:35px;
+
+    bottom:35px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:40px;
+
+    font-weight:600;
+
+    color:#fff;
+
+    z-index:5;
+
+    transition:.45s;
+
+}
+
+/*==================================================
+CARD HOVER
+==================================================*/
+
+.service-card:hover .service-hover-image{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.service-card:hover .service-hover-image img{
+
+    transform:scale(1.08);
+
+}
+
+.service-card:hover .service-content{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(-20px);
+
+}
+
+/*==================================================
+RESPONSIVE
+==================================================*/
+
+@media(max-width:991px){
+
+.services-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.service-card{
+
+height:400px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.service-content{
+
+padding:35px;
+
+}
+
+.service-content h3{
+
+font-size:34px;
+
+}
+
+.service-hover-title{
+
+font-size:32px;
+
+left:25px;
+
+bottom:25px;
+
+}
+
+}
 /*=====================================
 MOBILE
 =====================================*/
@@ -3122,4 +3439,93 @@ PREMIUM SERVICE CARD
 
 .service-card.active img{
     transform:scale(1.12);
+}
+/* ===== SERVICE CARD FIX ===== */
+
+.service-card{
+
+    background:#000 !important;
+
+    border-radius:0 !important;
+
+    border:1px solid #1f1f1f;
+
+    transition:.4s ease;
+
+}
+
+.service-card:hover{
+
+    background:#111 !important;
+
+    border-color:#C8A96A;
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 50px rgba(200,169,106,.15);
+
+}
+
+.service-number{
+
+    color:#C8A96A;
+
+    transition:.35s;
+
+}
+
+.service-card h3{
+
+    color:#ffffff;
+
+    transition:.35s;
+
+}
+
+.service-card p{
+
+    color:#9f9f9f;
+
+    transition:.35s;
+
+}
+
+.service-card a{
+
+    color:#C8A96A;
+
+    transition:.35s;
+
+}
+
+/* Hover Highlight */
+
+.service-card:hover .service-number{
+
+    color:#FFD87A;
+
+}
+
+.service-card:hover h3{
+
+    color:#FFD87A;
+
+}
+
+.service-card:hover p{
+
+    color:#ffffff;
+
+}
+
+.service-card:hover a{
+
+    color:#FFD87A;
+
+}
+
+.service-card:hover i{
+
+    transform:translateX(8px);
+
 }

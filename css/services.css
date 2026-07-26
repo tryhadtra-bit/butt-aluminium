@@ -1012,4 +1012,190 @@ justify-content:center;
 }
 
 }
+/*==================================================
+FOOTER
+==================================================*/
 
+.footer{
+
+background:#050505;
+padding:80px 0 30px;
+border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.footer-grid{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:60px;
+
+}
+
+.footer-box h3{
+
+font-size:28px;
+margin:20px 0;
+color:#fff;
+
+}
+
+.footer-box h4{
+
+font-size:20px;
+margin-bottom:20px;
+color:var(--gold);
+
+}
+
+.footer-box p{
+
+color:#bfbfbf;
+line-height:1.9;
+font-size:15px;
+
+}
+
+.footer-box ul{
+
+padding:0;
+margin:0;
+list-style:none;
+
+}
+
+.footer-box ul li{
+
+margin-bottom:12px;
+color:#bfbfbf;
+font-size:15px;
+
+}
+
+.footer-box ul li a{
+
+color:#bfbfbf;
+transition:.3s;
+
+}
+
+.footer-box ul li a:hover{
+
+color:var(--gold);
+padding-left:6px;
+
+}
+
+.footer-logo{
+
+width:170px;
+height:auto;
+margin-bottom:20px;
+
+}
+
+.footer-box i{
+
+color:var(--gold);
+margin-right:10px;
+width:18px;
+
+}
+
+.footer-bottom{
+
+margin-top:60px;
+padding-top:25px;
+border-top:1px solid rgba(255,255,255,.08);
+text-align:center;
+
+}
+
+.footer-bottom p{
+
+color:#888;
+font-size:14px;
+letter-spacing:1px;
+
+}
+
+/*==================================================
+WHATSAPP
+==================================================*/
+
+.whatsapp{
+
+position:fixed;
+right:25px;
+bottom:25px;
+
+width:60px;
+height:60px;
+
+background:#25D366;
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:30px;
+color:#fff;
+
+z-index:999;
+
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+transition:.35s;
+
+}
+
+.whatsapp:hover{
+
+transform:translateY(-6px) scale(1.08);
+
+}
+
+/*==================================================
+RESPONSIVE
+==================================================*/
+
+@media(max-width:991px){
+
+.footer-grid{
+
+grid-template-columns:repeat(2,1fr);
+gap:40px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.footer{
+
+padding:60px 0 25px;
+
+}
+
+.footer-grid{
+
+grid-template-columns:1fr;
+gap:35px;
+
+}
+
+.footer-logo{
+
+width:150px;
+
+}
+
+.footer-box{
+
+text-align:center;
+
+}
+
+}
