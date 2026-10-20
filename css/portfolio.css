@@ -175,141 +175,111 @@ color:#d0d0d0;
 margin-bottom:25px;
 
 }
-/*==================================================
-PORTFOLIO GALLERY
-==================================================*/
-
-.portfolio-gallery{
-
-background:#0b0b0b;
-
-}
-
-.portfolio-grid{
-
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:35px;
-
-}
-
-.project-card{
-
-position:relative;
-overflow:hidden;
-border-radius:25px;
-background:#181818;
-transition:.4s;
-cursor:pointer;
-
-}
-
-.project-card:hover{
-
-transform:translateY(-10px);
-
-}
-
-.project-card img{
-
-width:100%;
-height:450px;
-object-fit:cover;
-transition:.6s;
-
-}
-
-.project-card:hover img{
-
-transform:scale(1.08);
-
-}
-
-.project-overlay{
-
-position:absolute;
-left:0;
-bottom:0;
-width:100%;
-padding:35px;
-background:linear-gradient(transparent,rgba(0,0,0,.95));
-transition:.4s;
-
-}
-
-.project-overlay h3{
-
-font-size:30px;
-margin-bottom:12px;
-
-}
-
-.project-overlay p{
-
-font-size:16px;
-color:#d5d5d5;
-margin-bottom:20px;
-
-}
-
-.project-overlay a{
-
-display:inline-flex;
-align-items:center;
-gap:10px;
-color:#C8A96A;
-font-weight:600;
-transition:.3s;
-
-}
-
-.project-overlay a:hover{
-
-letter-spacing:1px;
-
-}
 
 /*==================================================
-PROJECT CATEGORIES
+PORTFOLIO GALLERY — FIXED PROJECT CARDS
 ==================================================*/
 
-.project-filter{
-
-background:#111111;
-padding:60px 0;
-
+.portfolio-gallery {
+    background: #0b0b0b;
 }
 
-.filter-buttons{
-
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:20px;
-
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    align-items: stretch;
+    width: 100%;
 }
 
-.filter-buttons button{
-
-padding:15px 35px;
-background:#1b1b1b;
-color:#ffffff;
-border:none;
-border-radius:40px;
-font-size:16px;
-font-weight:600;
-cursor:pointer;
-transition:.35s;
-
+.portfolio-grid .project-card {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 25px;
+    background: #181818;
+    cursor: pointer;
+    transition: transform 0.35s ease;
 }
 
-.filter-buttons button:hover,
-.filter-buttons button.active{
-
-background:#C8A96A;
-color:#111111;
-
+.portfolio-grid .project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
 }
+
+.portfolio-grid .project-card:hover {
+    transform: translateY(-6px);
+}
+
+.portfolio-grid .project-card:hover img {
+    transform: scale(1.05);
+}
+
+.portfolio-grid .project-overlay {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.95)
+    );
+}
+
+.portfolio-grid .project-overlay h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.portfolio-grid .project-overlay p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #d5d5d5;
+    margin-bottom: 15px;
+}
+
+.portfolio-grid .project-overlay a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #C8A96A;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .portfolio-grid .project-card {
+        height: 400px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 500px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-grid .project-card {
+        height: 350px;
+    }
+}
+
 
 /*==================================================
 FEATURED PROJECT
@@ -629,36 +599,6 @@ transition:.35s;
 
 background:#fff;
 transform:translateY(-5px);
-
-}
-/*==================================================
-RESPONSIVE DESIGN
-==================================================*/
-
-@media (max-width:1200px){
-
-.portfolio-grid,
-.portfolio-stats-grid,
-.testimonial-grid,
-.awards-grid{
-
-grid-template-columns:repeat(2,1fr);
-
-}
-
-.portfolio-intro .container,
-.featured-wrapper{
-
-grid-template-columns:1fr;
-
-}
-
-.featured-image{
-
-max-width:650px;
-margin:auto;
-
-}
 
 }
 
